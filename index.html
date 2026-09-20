@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <title>Nustian USA Gala Sponsorship Proposal</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --paper: #f5f3ee;
+      --ink: #101d1a;
+      --muted: #53615d;
+      --surface: #fffdf8;
+      --surface-2: #e7ece6;
+      --line: #cbd4cd;
+      --forest: #0d5c49;
+      --forest-deep: #073b30;
+      --mint: #b8e4cd;
+      --red: #c84432;
+      --gold: #d89a2b;
+      --white: #fffdf8;
+      --shadow: 0 18px 60px rgba(25, 41, 35, .10);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --paper: #0d1513;
+        --ink: #edf5f0;
+        --muted: #a7b5af;
+        --surface: #121f1b;
+        --surface-2: #1a2a25;
+        --line: #30433c;
+        --forest: #6dc7a4;
+        --forest-deep: #b8e4cd;
+        --mint: #173d32;
+        --red: #ef806e;
+        --gold: #e9b95b;
+        --white: #f5f3ee;
+        --shadow: 0 18px 60px rgba(0,0,0,.28);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "IBM Plex Sans", sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+    .shell { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+    .topbar-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .event-mark { display: flex; gap: 11px; align-items: center; min-width: 0; }
+    .event-mark .slash { width: 4px; height: 34px; background: var(--red); transform: skew(-10deg); flex: 0 0 auto; }
+    .event-mark strong { font-size: .92rem; letter-spacing: -.01em; display:block; }
+    .event-mark span { font: 500 .68rem/1.3 "IBM Plex Mono", monospace; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; display:block; }
+    .actions { display: flex; gap: 8px; align-items:center; }
+    .button {
+      display: inline-flex; align-items: center; justify-content:center; gap: 8px;
+      min-height: 42px; padding: 0 16px; text-decoration: none;
+      border: 1px solid var(--line); background: var(--surface); color: var(--ink);
+      font-weight: 600; font-size: .88rem; cursor: pointer;
+    }
+    .button.primary { background: var(--forest-deep); border-color: var(--forest-deep); color: var(--white); }
+    .button.download { border-color: var(--forest); color: var(--forest-deep); }
+    @media (prefers-color-scheme: dark) { .button.primary { color: #07130f; } }
+    .button:hover { border-color: var(--forest); }
+    .closing-actions { display:flex; flex-wrap:wrap; gap:8px; align-items:center; position:relative; z-index:1; }
+    .closing-actions .button { margin-top:16px; }
+    .closing-actions .button.download { background:transparent; color:var(--white); border-color:color-mix(in srgb, var(--white) 65%, transparent); }
+    .hero { padding: 78px 0 44px; position: relative; }
+    .organization-logo {
+      display: block;
+      width: clamp(150px, 20vw, 220px);
+      height: auto;
+      margin: 0 0 24px;
+    }
+    .hero::after {
+      content:""; position:absolute; right:-120px; top:40px; width:330px; height:330px;
+      border: 1px solid var(--line); border-radius: 50%; opacity:.65;
+      box-shadow: 0 0 0 55px color-mix(in srgb, var(--forest) 8%, transparent), 0 0 0 112px color-mix(in srgb, var(--gold) 6%, transparent);
+      pointer-events:none;
+    }
+    .kicker { font: 500 .72rem/1.3 "IBM Plex Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--forest); }
+    .hero-grid { display:grid; grid-template-columns: minmax(0, 1.45fr) minmax(270px, .55fr); gap: 64px; align-items:end; position:relative; z-index:1; }
+    h1 { margin: 18px 0 20px; max-width: 850px; font: 600 clamp(3rem, 7vw, 6.8rem)/.88 "Newsreader", serif; letter-spacing: -.055em; }
+    .hero-copy { max-width: 720px; font-size: clamp(1.05rem, 2vw, 1.28rem); color: var(--muted); margin:0; }
+    .hero-card { border-top: 4px solid var(--red); padding-top: 20px; }
+    .hero-card .date { font: 600 1.32rem/1.2 "Newsreader", serif; }
+    .hero-card p { color: var(--muted); margin: 8px 0 20px; }
+    .badge { display:inline-flex; align-items:center; gap:7px; font-size:.78rem; font-weight:600; color:var(--forest-deep); background:var(--mint); padding:7px 10px; }
+    .dot { width:7px; height:7px; border-radius:50%; background:currentColor; }
+
+    .tab-wrap { position:sticky; top:68px; z-index:19; background:var(--paper); border-block:1px solid var(--line); }
+    .tabs { display:flex; gap:0; overflow-x:auto; scrollbar-width:none; }
+    .tabs::-webkit-scrollbar { display:none; }
+    .tab { flex: 1 0 auto; padding: 15px 18px; border:0; border-right:1px solid var(--line); background:transparent; color:var(--muted); font-weight:600; cursor:pointer; }
+    .tab:first-child { border-left:1px solid var(--line); }
+    .tab[aria-selected="true"] { color:var(--ink); background:var(--surface); box-shadow: inset 0 -3px 0 var(--red); }
+    .panel { display:none; padding: 56px 0 76px; }
+    .panel.active { display:block; animation: reveal .28s ease both; }
+    @keyframes reveal { from { opacity:.35; transform:translateY(5px); } to { opacity:1; transform:none; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .panel.active { animation:none; } }
+    .section-head { display:grid; grid-template-columns: .6fr 1.4fr; gap: 40px; align-items:start; margin-bottom: 34px; }
+    .section-head h2 { margin:0; font: 600 clamp(2.1rem, 4vw, 4rem)/1 "Newsreader", serif; letter-spacing:-.035em; }
+    .section-head p { margin:3px 0 0; max-width:680px; color:var(--muted); font-size:1.05rem; }
+
+    .metrics { display:grid; grid-template-columns: 1.25fr .75fr .75fr; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow); }
+    .metric { padding:32px; min-height:180px; border-right:1px solid var(--line); position:relative; overflow:hidden; }
+    .metric:last-child { border-right:0; }
+    .metric.primary { background:var(--forest-deep); color:var(--white); }
+    .metric strong { display:block; max-width:100%; font:600 clamp(2.6rem, 5vw, 4.7rem)/.9 "Newsreader", serif; letter-spacing:-.05em; white-space:nowrap; }
+    .metric.primary strong { font-size:clamp(3.3rem, 8vw, 7.2rem); }
+    .metric span { display:block; margin-top:14px; max-width:260px; font-size:.88rem; }
+    .metric small { display:block; margin-top:9px; opacity:.72; font-size:.73rem; }
+    .lift-line { margin-top:22px; height:8px; background:color-mix(in srgb, var(--white) 18%, transparent); overflow:hidden; }
+    .lift-line span { width: 100%; height:100%; margin:0; display:block; background:var(--gold); transform-origin:left; animation:grow 1s ease-out both; }
+    @keyframes grow { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+    @media (prefers-reduced-motion: reduce) { .lift-line span { animation:none; } }
+    .network-callout { margin-top:22px; display:grid; grid-template-columns:minmax(190px,.55fr) minmax(0,1.45fr); background:var(--surface-2); border-left:5px solid var(--gold); }
+    .network-number { padding:24px 28px; border-right:1px solid var(--line); }
+    .network-number strong { display:block; font:600 clamp(2.8rem,5vw,4.6rem)/.9 "Newsreader",serif; letter-spacing:-.045em; color:var(--forest); }
+    .network-number span { display:block; margin-top:9px; font:500 .74rem "IBM Plex Mono",monospace; color:var(--muted); text-transform:uppercase; letter-spacing:.07em; }
+    .network-copy { padding:24px 28px; align-self:center; }
+    .network-copy strong { display:block; font-size:1.08rem; margin-bottom:5px; }
+    .network-copy p { margin:0; color:var(--muted); }
+
+    .two-col { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+    .story { background:var(--surface); border-top:1px solid var(--line); padding:28px 24px; display:grid; grid-template-columns:34px 1fr; gap:18px; }
+    .story-num { font:500 .78rem "IBM Plex Mono", monospace; color:var(--red); }
+    .story h3 { margin:0 0 8px; font-size:1.18rem; }
+    .story p { margin:0; color:var(--muted); }
+    .impact-strip { margin-top:26px; display:grid; grid-template-columns:repeat(4,1fr); background:var(--surface-2); }
+    .impact-cell { padding:24px; border-right:1px solid var(--line); }
+    .impact-cell:last-child { border-right:0; }
+    .impact-cell strong { font:600 2rem "Newsreader",serif; display:block; }
+    .impact-cell span { color:var(--muted); font-size:.84rem; }
+    .education-banner { margin-top:22px; padding:26px 28px; background:var(--mint); color:var(--forest-deep); display:grid; grid-template-columns:190px 1fr; gap:28px; align-items:start; }
+    .education-banner strong { font:600 1.45rem/1.05 "Newsreader",serif; }
+    .education-banner p { margin:0; font-size:.96rem; }
+
+    .audience-layout { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr); gap:28px; }
+    .chart-card { background:var(--surface); border:1px solid var(--line); padding:30px; }
+    .chart-card h3 { margin:0 0 8px; font-size:1rem; }
+    .chart-card p { margin:0 0 28px; color:var(--muted); font-size:.87rem; }
+    .bar-group { display:grid; gap:18px; }
+    .bar-row { display:grid; grid-template-columns:120px 1fr 56px; gap:12px; align-items:center; }
+    .bar-label { font-size:.86rem; }
+    .bar-track { height:14px; background:var(--surface-2); }
+    .bar-fill { height:100%; background:var(--forest); }
+    .bar-value { text-align:right; font:500 .82rem "IBM Plex Mono",monospace; }
+    .age-ring { display:grid; place-items:center; min-height:360px; text-align:center; background:var(--forest-deep); color:var(--white); position:relative; overflow:hidden; }
+    .age-ring::before { content:""; position:absolute; width:240px; height:240px; border-radius:50%; border:44px solid var(--gold); border-left-color:var(--red); transform:rotate(18deg); }
+    .age-ring .inside { position:relative; z-index:1; width:145px; }
+    .age-ring strong { display:block; font:600 4.5rem/1 "Newsreader",serif; letter-spacing:-.05em; }
+    .age-ring span { font-size:.82rem; }
+    .proof-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:22px; }
+    .proof { padding:22px; background:var(--surface); border-bottom:4px solid var(--gold); }
+    .proof strong { font:600 2rem "Newsreader",serif; display:block; }
+    .proof span { color:var(--muted); font-size:.83rem; }
+    .social-footprint { margin-top:38px; padding-top:28px; border-top:1px solid var(--line); }
+    .social-footprint-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:16px; }
+    .social-footprint-head h3 { margin:0; font:600 1.75rem/1 "Newsreader",serif; }
+    .social-footprint-head p { margin:0; color:var(--muted); font-size:.78rem; text-align:right; }
+    .social-total { display:grid; grid-template-columns:minmax(180px,.5fr) minmax(0,1.5fr); gap:28px; align-items:center; margin:0 0 18px; padding:24px 28px; background:var(--forest-deep); color:var(--white); }
+    .social-total strong { display:block; font:600 clamp(2.8rem,5vw,4.7rem)/1 "Newsreader",serif; letter-spacing:-.045em; white-space:nowrap; }
+    .social-total span { display:block; font-size:1.02rem; font-weight:600; }
+    .social-total small { display:block; margin-top:7px; font-size:.76rem; line-height:1.5; opacity:.76; }
+    .social-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--line); background:var(--surface); }
+    .social-card { min-width:0; min-height:166px; padding:26px 24px; text-decoration:none; border-right:1px solid var(--line); border-bottom:1px solid var(--line); overflow-wrap:anywhere; }
+    .social-card:nth-child(4n) { border-right:0; }
+    .social-card:nth-child(n+5) { border-bottom:0; }
+    .social-card:hover { background:var(--surface-2); }
+    .social-card span { display:block; color:var(--muted); font-size:.76rem; margin-bottom:8px; }
+    .social-card strong { display:block; font:600 clamp(1.5rem,3vw,2.2rem)/1 "Newsreader",serif; letter-spacing:-.025em; }
+    .social-card small { display:block; color:var(--forest); font-size:.7rem; margin-top:8px; }
+
+    .journey { display:grid; grid-template-columns:repeat(3,1fr); border:1px solid var(--line); background:var(--surface); }
+    .moment { padding:30px; min-height:260px; border-right:1px solid var(--line); }
+    .moment:last-child { border-right:0; }
+    .moment .phase { font:500 .72rem "IBM Plex Mono",monospace; color:var(--red); text-transform:uppercase; letter-spacing:.08em; }
+    .moment h3 { font:600 2rem/1 "Newsreader",serif; margin:18px 0; }
+    .moment ul { margin:0; padding:0; list-style:none; color:var(--muted); }
+    .moment li { padding:8px 0 8px 18px; position:relative; }
+    .moment li::before { content:""; position:absolute; width:6px; height:6px; background:var(--forest); left:0; top:17px; }
+    .series-banner { margin-top:22px; background:var(--mint); color:var(--forest-deep); padding:28px; display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:center; }
+    .series-banner svg { width:46px; height:46px; }
+    .series-banner strong { display:block; font-size:1.05rem; }
+    .series-banner p { margin:4px 0 0; font-size:.9rem; }
+
+    .package-layout { display:grid; grid-template-columns: 280px minmax(0,1fr); gap:24px; }
+    .package-list { display:grid; gap:8px; align-content:start; }
+    .package-tab { text-align:left; padding:16px; border:1px solid var(--line); background:var(--surface); color:var(--ink); cursor:pointer; display:flex; justify-content:space-between; gap:12px; }
+    .package-tab span { color:var(--muted); font:500 .78rem "IBM Plex Mono",monospace; }
+    .package-tab.active { background:var(--forest-deep); color:var(--white); border-color:var(--forest-deep); }
+    .package-tab.active span { color:inherit; opacity:.75; }
+    .package-detail { background:var(--surface); border:1px solid var(--line); min-height:450px; padding:clamp(26px,5vw,54px); position:relative; overflow:hidden; }
+    .package-detail::after { content:attr(data-rank); position:absolute; right:-10px; bottom:-65px; font:600 13rem "Newsreader",serif; color:color-mix(in srgb, var(--forest) 8%, transparent); line-height:1; pointer-events:none; }
+    .package-detail > .kicker { display:block; min-height:1.35em; margin:0 0 clamp(24px,3vw,34px); line-height:1.35; position:relative; z-index:1; }
+    .package-detail .price { display:block; margin:0; font:600 clamp(3.5rem,8vw,7rem)/.92 "Newsreader",serif; color:var(--forest); letter-spacing:-.055em; white-space:nowrap; position:relative; z-index:1; }
+    .package-detail .limit { display:inline-block; margin-top:20px; padding:6px 9px; border:1px solid var(--red); color:var(--red); font-size:.74rem; font-weight:600; }
+    .package-detail h3 { margin:30px 0 8px; font-size:1.15rem; }
+    .benefits { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; padding:0; margin:16px 0 0; list-style:none; max-width:750px; position:relative; z-index:1; }
+    .benefits li { padding:10px 0 10px 24px; border-bottom:1px solid var(--line); position:relative; }
+    .benefits li::before { content:"+"; position:absolute; left:0; color:var(--red); font-weight:700; }
+    .custom-note { margin-top:24px; padding:18px 20px; border-left:4px solid var(--gold); background:var(--surface-2); max-width:760px; position:relative; z-index:1; }
+
+    .closing { background:var(--forest-deep); color:var(--white); padding:clamp(34px,7vw,78px); position:relative; overflow:hidden; }
+    .closing::after { content:""; position:absolute; width:250px; height:250px; border:48px solid var(--gold); border-radius:50%; right:-80px; top:-90px; opacity:.85; }
+    .closing > .kicker { display:block; margin-bottom:24px; line-height:1.35; }
+    .closing h2 { max-width:760px; margin:0 0 18px; font:600 clamp(2.6rem,6vw,5.8rem)/.96 "Newsreader",serif; letter-spacing:-.05em; position:relative; z-index:1; }
+    .closing p { max-width:660px; font-size:1.08rem; opacity:.82; position:relative; z-index:1; }
+    .closing .button { margin-top:16px; background:var(--white); color:#0d2c24; border-color:var(--white); position:relative; z-index:1; }
+    .fine-print { margin-top:24px; padding-top:18px; border-top:1px solid color-mix(in srgb, var(--white) 25%, transparent); font-size:.72rem; opacity:.72; max-width:860px; position:relative; z-index:1; }
+    footer { border-top:1px solid var(--line); padding:26px 0 40px; color:var(--muted); font-size:.75rem; }
+    footer .shell { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+
+    @media (max-width: 820px) {
+      .hero { padding-top:50px; }
+      .hero-grid, .section-head, .audience-layout, .package-layout { grid-template-columns:1fr; gap:28px; }
+      .hero-card { max-width:500px; }
+      .metrics { grid-template-columns:1fr 1fr; }
+      .metric.primary { grid-column:1 / -1; }
+      .metric:nth-child(2) { border-bottom:0; }
+      .social-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .social-card:nth-child(4n) { border-right:1px solid var(--line); }
+      .social-card:nth-child(2n) { border-right:0; }
+      .social-card:nth-child(n+5) { border-bottom:1px solid var(--line); }
+      .social-card:nth-child(n+7) { border-bottom:0; }
+      .impact-strip { grid-template-columns:1fr 1fr; }
+      .impact-cell:nth-child(2) { border-right:0; }
+      .impact-cell:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+      .journey { grid-template-columns:1fr; }
+      .moment { border-right:0; border-bottom:1px solid var(--line); min-height:auto; }
+      .moment:last-child { border-bottom:0; }
+      .package-list { grid-template-columns:repeat(5, minmax(0,1fr)); gap:6px; }
+      .package-tab { display:block; padding:12px 8px; text-align:center; font-size:.72rem; }
+      .package-tab span { display:block; margin-top:4px; font-size:.65rem; }
+    }
+    @media (max-width: 620px) {
+      .shell { width:min(100% - 22px,1180px); }
+      .topbar-inner { min-height:62px; }
+      .event-mark strong { font-size:.8rem; }
+      .event-mark span { font-size:.58rem; }
+      .hero::after { width:210px; height:210px; right:-130px; }
+      .hero { padding-bottom:32px; }
+      h1 { font-size:3.45rem; }
+      .tab-wrap { top:62px; }
+      .tabs { width:100%; flex-wrap:wrap; }
+      .tab { flex:1 1 33.333%; padding:12px 7px; font-size:.76rem; border-bottom:1px solid var(--line); }
+      .tab:nth-child(4), .tab:nth-child(5) { flex-basis:50%; }
+      .panel { padding:38px 0 56px; }
+      .metrics { grid-template-columns:1fr; }
+      .metric.primary { grid-column:auto; }
+      .metric { border-right:0; border-bottom:1px solid var(--line); min-height:auto; padding:26px; }
+      .metric:last-child { border-bottom:0; }
+      .two-col, .proof-cards, .education-banner, .network-callout { grid-template-columns:1fr; }
+      .network-number { border-right:0; border-bottom:1px solid var(--line); }
+      .social-footprint-head { display:block; }
+      .social-footprint-head p { margin-top:8px; text-align:left; }
+      .social-total { grid-template-columns:1fr; gap:14px; padding:24px; }
+      .social-total strong { white-space:normal; }
+      .social-grid { grid-template-columns:1fr; }
+      .social-card, .social-card:nth-child(2n), .social-card:nth-child(4n), .social-card:nth-last-child(-n+4) { border-right:0; border-bottom:1px solid var(--line); }
+      .social-card:last-child { border-bottom:0; }
+      .impact-strip { grid-template-columns:1fr 1fr; }
+      .bar-row { grid-template-columns:92px 1fr 45px; }
+      .series-banner { grid-template-columns:1fr; }
+      .package-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .package-tab:first-child { grid-column:1 / -1; }
+      .package-detail { min-height:520px; }
+      .benefits { grid-template-columns:1fr; }
+      .closing { padding:34px 24px 44px; }
+    }
+    @media (max-width: 520px) {
+      .topbar-inner { min-height:auto; padding:8px 0; flex-wrap:wrap; gap:8px; }
+      .event-mark, .actions { width:100%; }
+      .actions { display:grid; grid-template-columns:1fr 1fr; }
+      .actions .button { min-width:0; padding:0 8px; font-size:.75rem; }
+      .tab-wrap { top:101px; }
+    }
+    @media print {
+      .topbar, .tab-wrap { display:none; }
+      .panel { display:block !important; page-break-before:auto; }
+      .hero { padding-top:30px; }
+      body { background:white; color:#111; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div class="event-mark" aria-label="Event details">
+        <span class="slash" aria-hidden="true"></span>
+        <div><strong>Nustian Silicon Valley Annual Gala</strong><span>Bay Area · November 7, 2026</span></div>
+      </div>
+      <div class="actions">
+        <a class="button primary" href="https://nustianusa.org" target="_blank" rel="noopener">Partner with us ↗</a>
+        <a class="button download" href="assets/nustian-usa-sponsorship-proposal.pdf" download="nustian-usa-sponsorship-proposal.pdf" type="application/pdf" aria-label="Download the sponsorship proposal PDF">Download proposal ↓</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero shell">
+      <div class="hero-grid">
+        <div>
+          <img class="organization-logo" src="assets/nustian-logo.webp" width="477" height="192" alt="NUSTIAN USA">
+          <div class="kicker">Sponsorship opportunity · 2026</div>
+          <h1>Nustian Silicon Valley Annual Gala</h1>
+          <p class="hero-copy">Connect your brand with Pakistani technology, industry and academic leaders—and with the families, friends, alumni networks and wider diaspora that gather around them.</p>
+        </div>
+        <aside class="hero-card">
+          <div class="date">Saturday, November 7</div>
+          <p>200+ expected guests · San Francisco Bay Area · dinner followed by a planned top-tier artist performance.</p>
+          <span class="badge"><span class="dot"></span>Artist booking subject to confirmation</span>
+        </aside>
+      </div>
+      <div class="education-banner">
+        <strong>Education sponsorship fund</strong>
+        <p>Sponsorship proceeds will also support NUSTIAN USA’s education sponsorship fund, helping extend educational opportunity alongside the flagship event.</p>
+      </div>
+    </section>
+
+    <nav class="tab-wrap" aria-label="Proposal sections">
+      <div class="shell tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="overview" id="tab-overview" data-tab="overview">Overview</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="audience" id="tab-audience" data-tab="audience">Audience</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="value" id="tab-value" data-tab="value">Sponsor value</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="packages" id="tab-packages" data-tab="packages">Packages</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="connect" id="tab-connect" data-tab="connect">Connect</button>
+      </div>
+    </nav>
+
+    <section class="panel active shell" id="overview" role="tabpanel" aria-labelledby="tab-overview">
+      <div class="section-head">
+        <h2>Reach that moves beyond the room.</h2>
+        <p>A national alumni network meets a fast-growing social audience. Sponsors can show up before the event, throughout the live experience, and in the recap—across channels where the community is already paying attention.</p>
+      </div>
+      <div class="metrics" aria-label="Social reach highlights">
+        <article class="metric primary">
+          <strong>99,440</strong>
+          <span>Instagram views in the latest shared 30-day period—up from about 32,000 in the previous 30 days.</span>
+          <div class="lift-line" aria-hidden="true"><span></span></div>
+          <small>Approximately 3× period-over-period growth</small>
+        </article>
+        <article class="metric">
+          <strong>13,551</strong>
+          <span>accounts reached in 30 days</span>
+          <small>More than 3× the follower base</small>
+        </article>
+        <article class="metric">
+          <strong>4,411</strong>
+          <span>Instagram followers</span>
+          <small>+220 in the same period</small>
+        </article>
+      </div>
+
+      <div class="network-callout" aria-label="WhatsApp community reach">
+        <div class="network-number"><strong>1,761</strong><span>WhatsApp community members</span></div>
+        <div class="network-copy"><strong>Connected across 59 WhatsApp groups</strong><p>A direct community layer complements NUSTIAN USA’s public social channels, linking members through professional, regional and interest-based conversations.</p></div>
+      </div>
+
+      <div class="social-footprint">
+        <div class="social-footprint-head"><h3>Across the social ecosystem</h3><p>Public profile counts checked September 18, 2026 · audiences may overlap</p></div>
+        <div class="social-total" aria-label="13,411 total followers across all measured social accounts">
+          <strong>13,411</strong>
+          <div><span>Reported total followers</span><small>Combined public profile counts shown below; WhatsApp’s 1,761 community members across 59 groups remain separate.</small></div>
+        </div>
+        <div class="social-grid" aria-label="NUSTIAN USA public social profile counts">
+          <a class="social-card" href="https://www.instagram.com/nustianusa" target="_blank" rel="noopener"><span>Instagram</span><strong>4,411</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://www.linkedin.com/company/nustianusa" target="_blank" rel="noopener"><span>LinkedIn</span><strong>2,900</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://www.facebook.com/nustianusa" target="_blank" rel="noopener"><span>Facebook</span><strong>4,900</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://twitter.com/nustianusa" target="_blank" rel="noopener"><span>X / Twitter</span><strong>1,200</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://www.threads.com/@nustianusa" target="_blank" rel="noopener"><span>Threads</span><strong>Profile</strong><small>view profile ↗</small></a>
+          <a class="social-card" href="https://www.youtube.com/channel/UC5AktkcRoi2jg_goZQDRUpA" target="_blank" rel="noopener"><span>YouTube</span><strong>Channel</strong><small>view channel ↗</small></a>
+          <a class="social-card" href="https://nustianusa.medium.com" target="_blank" rel="noopener"><span>Medium</span><strong>Publication</strong><small>view publication ↗</small></a>
+          <div class="social-card"><span>WhatsApp</span><strong>1,761</strong><small>members across 59 groups</small></div>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:38px">
+        <article class="story"><div class="story-num">01</div><div><h3>An open flagship, not a closed reunion</h3><p>The annual event welcomes more than NUST alumni: professionals, families, friends, guests from other Pakistani university networks and the broader diaspora all contribute to the room.</p></div></article>
+        <article class="story"><div class="story-num">02</div><div><h3>A high-trust national network</h3><p>More than 1,300 U.S. alumni are connected across technology, engineering, academia, entrepreneurship and industry—an established bridge between professional opportunity and community impact.</p></div></article>
+        <article class="story"><div class="story-num">03</div><div><h3>OPEN Silicon Valley partnership</h3><p>Event outreach is supported through a partnership with OPEN Silicon Valley. Selected sponsors can also receive visibility through the NUSTIAN USA booth as prospective attendees are engaged.</p></div></article>
+        <article class="story"><div class="story-num">04</div><div><h3>Weekly content, sponsor-ready</h3><p>A weekly social series is already underway. Partners can be integrated into selected episodes and promotional moments leading up to the event, extending visibility beyond a single night.</p></div></article>
+      </div>
+
+      <div class="impact-strip" aria-label="Community impact">
+        <div class="impact-cell"><strong>$1M+</strong><span>raised</span></div>
+        <div class="impact-cell"><strong>350+</strong><span>students supported</span></div>
+        <div class="impact-cell"><strong>34</strong><span>endowment seats</span></div>
+        <div class="impact-cell"><strong>28</strong><span>scholarships</span></div>
+      </div>
+    </section>
+
+    <section class="panel shell" id="audience" role="tabpanel" aria-labelledby="tab-audience" hidden>
+      <div class="section-head">
+        <h2>A young, connected, international audience.</h2>
+        <p>The audience profile combines emerging professionals with established community leaders. Social promotion can be timed around the most active windows—Sunday through Tuesday, 9 AM to noon PDT—while the weekly series builds a consistent runway into event week.</p>
+      </div>
+      <div class="audience-layout">
+        <article class="chart-card">
+          <h3>Audience geography</h3>
+          <p>Instagram audience share in the latest shared 30-day insights.</p>
+          <div class="bar-group">
+            <div class="bar-row"><span class="bar-label">Pakistan</span><div class="bar-track"><div class="bar-fill" style="width:71%"></div></div><span class="bar-value">71%</span></div>
+            <div class="bar-row"><span class="bar-label">United States</span><div class="bar-track"><div class="bar-fill" style="width:16.5%"></div></div><span class="bar-value">16.5%</span></div>
+            <div class="bar-row"><span class="bar-label">Other markets</span><div class="bar-track"><div class="bar-fill" style="width:12.5%"></div></div><span class="bar-value">12.5%</span></div>
+          </div>
+          <p style="margin-top:25px;margin-bottom:0">Additional audiences include Canada, Germany and the United Kingdom.</p>
+        </article>
+        <article class="age-ring" aria-label="82 percent of the audience is age 18 to 34">
+          <div class="inside"><strong>82%</strong><span>of the audience is age 18–34</span></div>
+        </article>
+      </div>
+      <div class="proof-cards">
+        <div class="proof"><strong>1,136</strong><span>interactions in 30 days—approximately double the previous period</span></div>
+        <div class="proof"><strong>24K</strong><span>combined views across two “Meet City Leads” posts</span></div>
+        <div class="proof"><strong>11K</strong><span>views on “A Day in the Life: Episode 02”</span></div>
+      </div>
+
+      <div class="social-footprint">
+        <div class="social-footprint-head"><h3>Across the social ecosystem</h3><p>Public profile counts checked September 18, 2026 · audiences may overlap</p></div>
+        <div class="social-grid" aria-label="NUSTIAN USA public social profile counts">
+          <a class="social-card" href="https://www.instagram.com/nustianusa" target="_blank" rel="noopener"><span>Instagram</span><strong>4,411</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://www.linkedin.com/company/nustianusa" target="_blank" rel="noopener"><span>LinkedIn</span><strong>2,900</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://www.facebook.com/nustianusa" target="_blank" rel="noopener"><span>Facebook</span><strong>4,900</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://twitter.com/nustianusa" target="_blank" rel="noopener"><span>X / Twitter</span><strong>1,200</strong><small>followers ↗</small></a>
+          <a class="social-card" href="https://www.threads.com/@nustianusa" target="_blank" rel="noopener"><span>Threads</span><strong>Profile</strong><small>view profile ↗</small></a>
+          <a class="social-card" href="https://www.youtube.com/channel/UC5AktkcRoi2jg_goZQDRUpA" target="_blank" rel="noopener"><span>YouTube</span><strong>Channel</strong><small>view channel ↗</small></a>
+          <a class="social-card" href="https://nustianusa.medium.com" target="_blank" rel="noopener"><span>Medium</span><strong>Publication</strong><small>view publication ↗</small></a>
+          <div class="social-card"><span>WhatsApp</span><strong>1,761</strong><small>members across 59 groups</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel shell" id="value" role="tabpanel" aria-labelledby="tab-value" hidden>
+      <div class="section-head">
+        <h2>Three moments. One coherent partnership.</h2>
+        <p>The strongest partnerships do more than place a logo. They build recognition before the event, create meaningful contact in the room, and keep the story moving afterward.</p>
+      </div>
+      <div class="journey">
+        <article class="moment"><span class="phase">Before · Build anticipation</span><h3>Show up in the story.</h3><ul><li>Brand mention in selected event advertising</li><li>Tagged social recognition</li><li>Integration into the current weekly content series</li><li>Optional co-created reel or story for lead partners</li></ul></article>
+        <article class="moment"><span class="phase">During · Meet the community</span><h3>Make the room count.</h3><ul><li>Stage recognition and premium signage</li><li>Reserved hospitality and leadership access</li><li>Activation, recruiting, sampling or display options</li><li>Selected booth visibility through OPEN Silicon Valley</li></ul></article>
+        <article class="moment"><span class="phase">After · Extend the story</span><h3>Leave a useful trace.</h3><ul><li>Post-event sponsor acknowledgment</li><li>Selected recap photography</li><li>Placement links or screenshots</li><li>Custom impact recap for lead partners</li></ul></article>
+      </div>
+      <div class="series-banner">
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M7 35V21m11 14V13m11 22V7m11 28V18" stroke="currentColor" stroke-width="4"/><path d="m7 15 11-6 11 3 11-8" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/></svg>
+        <div><strong>Promotion is already active.</strong><p>The event lead-up aligns with a period of strong activity and impression growth. Sponsors can join the weekly series now—not just appear at the finish line.</p></div>
+      </div>
+    </section>
+
+    <section class="panel shell" id="packages" role="tabpanel" aria-labelledby="tab-packages" hidden>
+      <div class="section-head">
+        <h2>Choose the level of presence.</h2>
+        <p>Select a package to explore the difference in visibility, access and hospitality. Custom underwriting for the artist, dinner, production, travel or scholarships can also be structured separately.</p>
+      </div>
+      <div class="package-layout">
+        <div class="package-list" role="list" aria-label="Sponsorship levels">
+          <button class="package-tab active" data-package="presenting">Presenting <span>$15K</span></button>
+          <button class="package-tab" data-package="platinum">Platinum <span>$5K</span></button>
+          <button class="package-tab" data-package="gold">Gold <span>$2.5K</span></button>
+          <button class="package-tab" data-package="silver">Silver <span>$1K</span></button>
+          <button class="package-tab" data-package="community">Community <span>$500</span></button>
+        </div>
+        <article class="package-detail" data-rank="01" aria-live="polite">
+          <div class="kicker" id="package-name">Presenting Partner</div>
+          <div class="price" id="package-price">$15,000</div>
+          <span class="limit" id="package-limit">LIMIT ONE</span>
+          <h3 id="package-summary">Own the lead position across the event story.</h3>
+          <ul class="benefits" id="package-benefits"></ul>
+          <div class="custom-note">Benefits and placements are finalized in writing and remain subject to venue rules, production timelines, inventory and category conflicts. In-kind support may be credited at an agreed fair value.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel shell" id="connect" role="tabpanel" aria-labelledby="tab-connect" hidden>
+      <div class="closing">
+        <div class="kicker" style="color:var(--gold)">Annual flagship · Bay Area · November 7</div>
+        <h2>Bring your brand into a community that builds, connects and gives back.</h2>
+        <p>Choose a sponsorship level or ask for a package shaped around awareness, recruiting, hospitality, product engagement or education impact. Sponsorship proceeds will also support NUSTIAN USA’s education sponsorship fund.</p>
+        <div class="closing-actions">
+          <a class="button" href="https://nustianusa.org" target="_blank" rel="noopener">Start a partnership at nustianusa.org ↗</a>
+          <a class="button download" href="assets/nustian-usa-sponsorship-proposal.pdf" download="nustian-usa-sponsorship-proposal.pdf" type="application/pdf" aria-label="Download the sponsorship proposal PDF">Download proposal ↓</a>
+        </div>
+        <div class="fine-print">NUSTIAN USA is a registered 501(c)(3) nonprofit organization. Expected attendance, artist plans, sponsor placements and event deliverables are subject to final confirmation. Instagram performance metrics and WhatsApp community figures reflect organizer-supplied evidence shared on September 18, 2026; public platform counts were checked the same day. Audiences may overlap, and past performance does not guarantee future sponsor-campaign results.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell"><span>Sources: NUSTIAN USA official website and public social profiles; organizer-supplied Instagram Insights and WhatsApp community screenshot.</span><span>© 2026 NUSTIAN USA</span></div>
+  </footer>
+
+  <script>
+    const packageData = {
+      presenting: { rank:'01', name:'Presenting Partner', price:'$15,000', limit:'LIMIT ONE', summary:'Own the lead position across the event story.', benefits:['“Presented by” naming position','Largest logo on core event materials','Welcome or speaking opportunity','Premium stage recognition','Event marketing across NUSTIAN USA’s top-followed social accounts, including Instagram, Facebook, LinkedIn and X','Dedicated pre- and post-event social content timed around high-activity windows','Logo placement on all social posts for 4 weeks before and 3 weeks after the event','Weekly-series sponsor integration','Lead visibility at the OPEN Silicon Valley booth','Activation space and up to 10 tickets','Category exclusivity where feasible'] },
+      platinum: { rank:'02', name:'Platinum Partner', price:'$5,000', limit:'PREMIUM LEVEL', summary:'Build repeat visibility with a strong live presence.', benefits:['Prominent logo placement','Stage acknowledgment','Dedicated social recognition','Sponsor mention in the weekly series for 2 weeks','Logo placement on all Nustian USA social posts from one week before through one week after the event (2 weeks total)','Visibility at the OPEN Silicon Valley booth','Activation or display table','Reserved seating with up to 8 tickets','Post-event acknowledgment'] },
+      gold: { rank:'03', name:'Gold Partner', price:'$2,500', limit:'CORE LEVEL', summary:'Pair event recognition with targeted digital reach.', benefits:['Standard logo placement','Group stage acknowledgment','One tagged pre- or post-event social mention','Shared display area where available','Up to 4 event tickets'] },
+      silver: { rank:'04', name:'Silver Partner', price:'$1,000', limit:'COMMUNITY LEVEL', summary:'Support the flagship and be recognized with the community.', benefits:['Small logo in sponsor-recognition areas','Group event acknowledgment','Post-event thank-you mention','Up to 2 event tickets'] },
+      community: { rank:'05', name:'Community Supporter', price:'$500', limit:'ENTRY LEVEL', summary:'Take a visible first step as a community supporter.', benefits:['Sponsor name listing','Group social thank-you','Recognition screen or program listing','1 event ticket'] }
+    };
+
+    const tabs = [...document.querySelectorAll('.tab')];
+    const panels = [...document.querySelectorAll('.panel')];
+    function activateTab(id, updateHash=true) {
+      if (!document.getElementById(id)) id = 'overview';
+      tabs.forEach(tab => {
+        const active = tab.dataset.tab === id;
+        tab.setAttribute('aria-selected', active);
+        tab.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(panel => {
+        const active = panel.id === id;
+        panel.hidden = !active;
+        panel.classList.toggle('active', active);
+      });
+      if (updateHash) history.replaceState(null, '', '#' + id);
+    }
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => activateTab(tab.dataset.tab));
+      tab.addEventListener('keydown', e => {
+        if (!['ArrowLeft','ArrowRight'].includes(e.key)) return;
+        e.preventDefault();
+        const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+        tabs[next].focus(); tabs[next].click();
+      });
+    });
+
+    const packageButtons = [...document.querySelectorAll('.package-tab')];
+    const detail = document.querySelector('.package-detail');
+    function renderPackage(key) {
+      const data = packageData[key];
+      packageButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.package === key));
+      detail.dataset.rank = data.rank;
+      document.getElementById('package-name').textContent = data.name;
+      document.getElementById('package-price').textContent = data.price;
+      document.getElementById('package-limit').textContent = data.limit;
+      document.getElementById('package-summary').textContent = data.summary;
+      document.getElementById('package-benefits').innerHTML = data.benefits.map(item => `<li>${item}</li>`).join('');
+    }
+    packageButtons.forEach(btn => btn.addEventListener('click', () => renderPackage(btn.dataset.package)));
+    renderPackage('presenting');
+    activateTab(location.hash.slice(1) || 'overview', false);
+    window.addEventListener('hashchange', () => activateTab(location.hash.slice(1), false));
+
+    // Keep the link as a normal file download by default. Fetching the PDF into a
+    // Blob is useful on HTTP pages, but it breaks when the site is opened directly
+    // from the filesystem because `fetch()` is blocked for local `file://` pages.
+    const proposalPath = 'assets/nustian-usa-sponsorship-proposal.pdf';
+    const proposalLinks = [...document.querySelectorAll('a.download')];
+
+    proposalLinks.forEach(link => {
+      link.href = proposalPath;
+      link.download = 'nustian-usa-sponsorship-proposal.pdf';
+      link.removeAttribute('aria-busy');
+    });
+
+    if (location.protocol !== 'file:') {
+      let proposalObjectUrl = '';
+      fetch(proposalPath)
+        .then(response => {
+          if (!response.ok) throw new Error(`PDF unavailable (${response.status})`);
+          return response.blob();
+        })
+        .then(blob => {
+          proposalObjectUrl = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
+          proposalLinks.forEach(link => {
+            link.href = proposalObjectUrl;
+            link.download = 'nustian-usa-sponsorship-proposal.pdf';
+            link.dataset.downloadReady = 'true';
+          });
+        })
+        .catch(() => {
+          proposalLinks.forEach(link => {
+            link.href = proposalPath;
+            delete link.dataset.downloadReady;
+          });
+        });
+
+      window.addEventListener('pagehide', () => {
+        if (proposalObjectUrl) URL.revokeObjectURL(proposalObjectUrl);
+      });
+    }
+
+  </script>
+</body>
+</html>

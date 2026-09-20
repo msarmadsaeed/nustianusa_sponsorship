@@ -1,0 +1,1 @@
+{"description":"Nustian USA Gala Sponsorship Proposal page (static site)","name":"nustian-usa-gala-sponsorship-proposal","private":true,"scripts":{"dev":"npx --yes serve .","start":"npx --yes serve ."},"version":"1.0.0"}
