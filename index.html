@@ -122,6 +122,11 @@
       .closing{padding:34px 24px 44px}
     }
     @media print{.tab-wrap{display:none}.panel{display:block!important;page-break-before:auto}body{background:white;color:#111}.mobile-comparison{display:none}.comparison-table{display:table}}
+    @media (prefers-color-scheme:dark){
+      /* keep deep-green brand blocks dark so the light text on them stays readable */
+      .pdf-btn,.facts,.age-ring,.package-tab.active,.comparison-table thead th,.closing{background:#073b30}
+      .pdf-btn:hover{background:#0e604b}
+    }
   </style>
 </head>
 <body>
