@@ -95,7 +95,7 @@
     .package-layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:24px}.package-list{display:grid;gap:8px;align-content:start}.package-tab{text-align:left;padding:16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;gap:10px}.package-tab span{color:var(--muted);font:500 .76rem "IBM Plex Mono",monospace}.package-tab.active{background:var(--forest-deep);color:var(--white);border-color:var(--forest-deep)}.package-tab.active span{color:inherit;opacity:.75}
     .package-detail{padding:clamp(28px,5vw,54px);min-height:520px;background:var(--surface);border:1px solid var(--line);position:relative;overflow:hidden}.package-detail::after{content:attr(data-rank);position:absolute;right:-8px;bottom:-67px;font:600 13rem "Newsreader",serif;color:color-mix(in srgb,var(--forest) 8%,transparent);line-height:1;pointer-events:none}.package-detail>.kicker{display:block;margin-bottom:26px;position:relative;z-index:1}.price{display:block;font:600 clamp(3.5rem,8vw,7rem)/.9 "Newsreader",serif;letter-spacing:-.055em;color:var(--forest);white-space:nowrap;position:relative;z-index:1}.limit{display:inline-block;margin-top:18px;padding:6px 9px;border:1px solid var(--red);color:var(--red);font-size:.72rem;font-weight:600}.package-detail h3{margin:28px 0 8px}.benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px;margin:14px 0 0;padding:0;list-style:none;max-width:790px;position:relative;z-index:1}.benefits li{padding:9px 0 9px 23px;border-bottom:1px solid var(--line);position:relative}.benefits li::before{content:"+";position:absolute;left:0;color:var(--red);font-weight:700}
     .custom-note{margin-top:22px;padding:17px 19px;background:var(--surface-2);border-left:4px solid var(--gold);max-width:780px;font-size:.86rem;position:relative;z-index:1}
-    .comparison{margin-top:48px}.comparison-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:16px}.comparison-head h3{margin:0;font:600 clamp(2rem,4vw,3.4rem)/1 "Newsreader",serif}.comparison-head p{margin:0;max-width:490px;color:var(--muted);font-size:.85rem;text-align:right}
+    .comparison{margin-top:48px}.comparison-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}.comparison-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:16px}.comparison-head h3{margin:0;font:600 clamp(2rem,4vw,3.4rem)/1 "Newsreader",serif}.comparison-head p{margin:0;max-width:490px;color:var(--muted);font-size:.85rem;text-align:right}
     .comparison-table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);font-size:.78rem;table-layout:fixed}.comparison-table th,.comparison-table td{padding:12px 9px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:middle;text-align:center}.comparison-table th:first-child,.comparison-table td:first-child{width:29%;text-align:left;font-weight:600}.comparison-table thead th{background:var(--forest-deep);color:var(--white);font-size:.8rem}.comparison-table thead span{display:block;margin-top:3px;font:500 .7rem "IBM Plex Mono",monospace;opacity:.74}.comparison-table tbody tr:last-child td{border-bottom:0}.yes{color:var(--forest);font-weight:700;font-size:1rem}.dash{color:var(--muted)}
     .mobile-comparison{display:none}.tier-card{padding:22px;background:var(--surface);border:1px solid var(--line)}.tier-card+.tier-card{margin-top:12px}.tier-card header{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding-bottom:12px;border-bottom:1px solid var(--line)}.tier-card h4{margin:0;font:600 1.4rem "Newsreader",serif}.tier-card header span{font:500 .78rem "IBM Plex Mono",monospace;color:var(--forest)}.tier-card ul{margin:14px 0 0;padding:0;list-style:none}.tier-card li{padding:7px 0 7px 18px;position:relative;color:var(--muted);font-size:.88rem}.tier-card li::before{content:"+";position:absolute;left:0;color:var(--red);font-weight:700}
 
@@ -116,7 +116,7 @@
       .event-flow .flow-item{border-right:0;border-bottom:1px solid var(--line)}.event-flow .flow-item:last-child{border-bottom:0}
       .proof-cards{grid-template-columns:1fr}.social-footprint-head{display:block}.social-footprint-head p{margin-top:8px;text-align:left}.social-grid{grid-template-columns:1fr}.social-card,.social-card:nth-child(4n),.social-card:nth-child(n+5){border-right:0;border-bottom:1px solid var(--line)}.social-card:last-child{border-bottom:0}
       .bar-row{grid-template-columns:92px 1fr 44px}.series-banner{grid-template-columns:1fr}.package-list{grid-template-columns:repeat(2,1fr)}.package-tab:first-child{grid-column:1 / -1}.package-detail{min-height:560px}.benefits{grid-template-columns:1fr}.price{white-space:normal}
-      .comparison-head{display:block}.comparison-head p{margin-top:8px;text-align:left}.comparison-table{display:none}.mobile-comparison{display:block}
+      .comparison-head{display:block}.comparison-head p{margin-top:8px;text-align:left}.comparison-table{display:table;min-width:640px}.mobile-comparison{display:none}
       .closing{padding:34px 24px 44px}
     }
     @media print{.tab-wrap{display:none}.panel{display:block!important;page-break-before:auto}body{background:white;color:#111}.mobile-comparison{display:none}.comparison-table{display:table}}
@@ -259,6 +259,7 @@
 
       <section class="comparison" aria-labelledby="comparison-title">
         <div class="comparison-head"><h3 id="comparison-title">Package comparison</h3><p>One scan shows how visibility, access and hospitality step up across the five tiers.</p></div>
+        <div class="comparison-scroll">
         <table class="comparison-table">
           <thead><tr><th scope="col">Benefit</th><th scope="col">Presenting<span>$15,000</span></th><th scope="col">Platinum<span>$5,000</span></th><th scope="col">Gold<span>$2,500</span></th><th scope="col">Silver<span>$1,000</span></th><th scope="col">Community<span>$500</span></th></tr></thead>
           <tbody>
@@ -274,6 +275,7 @@
             <tr><td>Category exclusivity</td><td>Where feasible</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td><td class="dash">—</td></tr>
           </tbody>
         </table>
+        </div>
         <div class="mobile-comparison" id="mobile-comparison" aria-label="Package comparison by tier"></div>
       </section>
     </section>
